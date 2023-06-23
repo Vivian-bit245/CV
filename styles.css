@@ -1,3 +1,7 @@
+/*************************************************
+                SITE WIDE
+*************************************************/
+
 /* FONTS */
 
 body {
@@ -42,7 +46,14 @@ h5 {
     text-align: right;
 }
 
+/*************************************************
+                CV
+*************************************************/
+
+
 /* DISPLAY */
+
+
 
 .left {
     display: inline-block;
@@ -84,4 +95,48 @@ section .right {
 .work-title-right {
 display: inline-block;
 width: 24%;
+}
+
+/*************************************************
+                CONTACT
+*************************************************/
+.form-question {
+    margin: 20px;
+}
+.form-question label {
+display: block;
+margin-bottom: 5px;
+}
+
+.form-question input, .form-question textarea {
+    width:  80vw;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+#submit {
+    padding: 7px 20px;
+    background-color: #256ac4;
+    color: white;
+    border: 0;
+    box-shadow: 1px 2px #333;
+    border-radius: 4px;
+}
+
+.required label::after {
+    content: "*";
+    color: red;
+}
+#submit:hover {
+    background-color: white;
+    color: blue;
+    box-shadow: none;
+    border: 1px solid blue;
+}
+#submit:active {
+    background-color: aqua;
+    color: red;
+    box-shadow: 1px;
+    border: 1px solid black ;
 }
