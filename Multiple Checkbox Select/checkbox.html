@@ -3,130 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hold Shift to Check Multiple Checkboxes</title>
+    <link rel="stylesheet" href="checkbox.css" />
     <link rel="icon" href="https://fav.farm/🔥" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+    crossorigin="anonymous"
   </head>
   <body>
-    <style>
-      html {
-        font-family: sans-serif;
-        background: #009dff;
-      }
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">My Logo</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse bg-primary"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./cv.html">CV</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Projects</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./contact.html"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-      .inbox {
-        max-width: 400px;
-        margin: 50px auto;
-        background: white;
-        border-radius: 5px;
-        box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
-      }
-
-      .item {
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #f1f1f1;
-      }
-
-      .item:last-child {
-        border-bottom: 0;
-      }
-
-      input:checked + p {
-        background: #f9f9f9;
-        text-decoration: line-through;
-      }
-
-      input[type="checkbox"] {
-        margin: 20px;
-      }
-
-      p {
-        margin: 0;
-        padding: 20px;
-        transition: background 0.2s;
-        flex: 1;
-        font-family: "helvetica neue";
-        font-size: 20px;
-        font-weight: 200;
-        border-left: 1px solid #d1e2ff;
-      }
-    </style>
+    <style></style>
     <!--
    The following is a common layout you would see in an email client.
 
    When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
 
   -->
-    <div class="inbox">
-      <div class="item">
-        <input type="checkbox" />
-        <p>This is an inbox layout.</p>
-      </div>
-      <div class="item">
-        <input type="checkbox" />
-        <p>Check one item</p>
-      </div>
-      <div class="item">
-        <input type="checkbox" />
-        <p>Hold down your Shift key</p>
-      </div>
-      <div class="item">
-        <input type="checkbox" />
-        <p>Check a lower item</p>
-      </div>
-      <div class="item">
-        <input type="checkbox" />
-        <p>Everything in between should also be set to checked</p>
-      </div>
-      <div class="item">
-        <input type="checkbox" />
-        <p>Try to do it without any libraries</p>
-      </div>
-      <div class="item">
-        <input type="checkbox" />
-        <p>Just regular JavaScript</p>
-      </div>
-      <div class="item">
-        <input type="checkbox" />
-        <p>Good Luck!</p>
-      </div>
-      <div class="item">
-        <input type="checkbox" />
-        <p>Don't forget to tweet your result!</p>
+    <div id="pro2-wrapper">
+      <div class="inbox">
+        <div class="item">
+          <input type="checkbox" />
+          <p>This is an inbox layout.</p>
+        </div>
+        <div class="item">
+          <input type="checkbox" />
+          <p>Check one item</p>
+        </div>
+        <div class="item">
+          <input type="checkbox" />
+          <p>Hold down your Shift key</p>
+        </div>
+        <div class="item">
+          <input type="checkbox" />
+          <p>Check a lower item</p>
+        </div>
+        <div class="item">
+          <input type="checkbox" />
+          <p>Everything in between should also be set to checked</p>
+        </div>
+        <div class="item">
+          <input type="checkbox" />
+          <p>Try to do it without any libraries</p>
+        </div>
+        <div class="item">
+          <input type="checkbox" />
+          <p>Just regular JavaScript</p>
+        </div>
+        <div class="item">
+          <input type="checkbox" />
+          <p>Good Luck!</p>
+        </div>
+        <div class="item">
+          <input type="checkbox" />
+          <p>Don't forget to tweet your result!</p>
+        </div>
       </div>
     </div>
-
-    <script>
-      const checkboxes = document.querySelectorAll(
-        '.inbox input[type="checkbox"]'
-      );
-      //console.log(checkboxes);
-      let lastChecked;
-
-      function handleCheck(e) {
-        //console.log(e);
-        //check if they had the shift key down
-        //AND check that they are checking it
-        let inBetween = false;
-        if (e.shiftKey && this.checked) {
-          //go ahead and do what we please
-          //loop over every single checkbox
-          checkboxes.forEach((checkbox) => {
-            console.log(checkbox);
-            if (checkbox === this || checkbox === lastChecked) {
-              inBetween = !inBetween;
-              console.log("Starting to check in between!");
-            }
-            if (inBetween) {
-              checkbox.checked = true;
-            }
-          });
-        }
-
-        lastChecked = this;
-      }
-      checkboxes.forEach((checkbox) =>
-        checkbox.addEventListener("click", handleCheck)
-      );
-    </script>
+    <script src="/scriptscheckbox.js"></script>
   </body>
 </html>
